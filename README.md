@@ -21,6 +21,12 @@ Used [spring initializr](https://start.spring.io/) for generating Spring Boot we
 To minimize environment set up, I am using just Maven.
 For simplicity of packaging/installation I am shipping the application as one bundle (React as frontend inside Spring Boot) with help of `frontend-maven-plugin`. More information is here: https://github.com/eirslett/frontend-maven-plugin
 
+Dependencies versions
+```
+Npm version: 10.9.2
+Node version: v22.13.0
+```
+
 For frontend local development changes: 
 ```
 $ cd retail-product-catalog\src\main\product-catalog-frontend
@@ -29,7 +35,7 @@ $ npm start
 
 You will see live frontend update in:
 
-localhost:3000
+http://localhost:3000
 
 #### Packaging the bundle:
 ```
@@ -41,11 +47,10 @@ $ .\mvnw package
 
 `$ java -jar .\target\retail-product-catalog-0.0.1-SNAPSHOT.jar`
 
-Dependencies versions
-```
-Npm version: 10.9.2
-Node version: v22.13.0
-```
+#### Configuration
+To prepopulate Product Catalog with data, use configuration API call:
+
+http://localhost:8080/config?action=prepopulate
 
 ### Potential Improvements
 For production ready code we need to know context better where service will be running as well as specifying non-functional requirements that will help to estimate workloads and risks. Further improvements/enhancements I would consider:
