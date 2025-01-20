@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ProductCatalogService {
@@ -18,11 +19,16 @@ public class ProductCatalogService {
         return new ArrayList<>(catalogDataManager.getCatalog().values());
     }
 
-    public Product getProduct(Integer id) {
-        return new Product(1, "Pillow", new ProductCategory("Bedroom"), "Good pillow for your bedroom", 0.00, "https://www.ikea.com/se/en/images/products/skogsfraeken-pillow-high__0789288_pe763917_s5.jpg?f=s");
+    public Optional<Product> getProductById(Long id) {
+        return catalogDataManager.getProductById(id);
+    }
+
+    public Optional<Product> getProductByName(String name) {
+        return catalogDataManager.getProductByName(name);
     }
 
     public String addProduct(Product product) {
+        catalogDataManager.addProduct(product);
         return "Product has been added successfully";
     }
 }

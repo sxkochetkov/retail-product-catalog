@@ -9,12 +9,21 @@ Develop a retail product catalog application with a backend that supports fuzzy 
   - Can retrieve details for a specified product
   - Can search for products with Fuzzy Search capability by product name
      
+### Assumptions
+- Product names are unique (for non-unique names please see suggestion discussed in `Data Modeling and Storing` section below)
+- All data is in correct format
+- Data is not normalized (no relationships are enforced such as product-categories)
+
 ### Design Considerations
 
 #### Data Modeling and Storing
-Since the assignment does not involve any persistence and use cases do not care about normalization and property relationships and ordering, it is suggested to use HashMap for indexing data (as key on product name) to make is searchable with fast access O(1) to indeces (product name).
+Since the assignment does not involve any persistence and use cases do not care about normalization and property relationships and ordering, it is suggested to use `HashMap` for indexing data (as key on product name) to make is searchable with fast access O(1) to indexes (product name).
+The downside of this approach is that key can be not unique but this can be solved by storing as value List of products for same key.
 
-Alternatively, if we care about ordering and uniqueness, this can be solved by using tree-like structures like heap (PriorityQueue) or red-black tree (TreeSet) that keeps data sorted and unique for example by timestamp, but it is expensive for writes.
+Alternatively, if we care about ordering and uniqueness, this can be solved by using tree-like structures like heap (`PriorityQueue`) or red-black tree (`TreeSet`) that keeps data sorted and unique for example by timestamp, but it is expensive for writes.
+
+#### Product lookup
+There are indexes to speed up lookup but since we don't use any databases we need to create in-memory indexes. Hash index on product name is suggested as a key for `HashMap` but there is a tradeoff: if we need to do lookup for ids that decreases performance for reads. 
 
 ### Dev Notes
 Used [spring initializr](https://start.spring.io/) for generating Spring Boot web application (Java/Maven/Spring.Web).
