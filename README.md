@@ -24,6 +24,7 @@ Alternatively, if we care about ordering and uniqueness, this can be solved by u
 
 #### Product lookup
 There are indexes to speed up lookup but since we don't use any databases we need to create in-memory indexes. Hash index on product name is suggested as a key for `HashMap` but there is a tradeoff: if we need to do lookup for ids that decreases performance for reads. 
+Regarding fuzzy search algorithm, I was experimenting with string mutations.
 
 ### Dev Notes
 Used [spring initializr](https://start.spring.io/) for generating Spring Boot web application (Java/Maven/Spring.Web).
@@ -47,20 +48,31 @@ You will see live frontend update in:
 
 http://localhost:3000
 
-#### Packaging the bundle:
+#### Packaging the bundle (go to project root folder):
 ```
 $ cd retail-product-catalog
 $ .\mvnw package
 ```
 
-#### Running application in development environment (from root folder):
+#### Running application in development environment (from project root folder):
 
 `$ java -jar .\target\retail-product-catalog-0.0.1-SNAPSHOT.jar`
 
-#### Configuration
-To prepopulate Product Catalog with data, use configuration API call:
+#### Options:
+- For prepopulating product catalog, see `Configuration section` below. 
+- To add a new product, use `Add New Product` button on the header. 
+- To do product catalog search, use `Search Product` button. For demonstration fuzzy search capability I added products with similar names. Start typing `roedarv` and play around with it to see search results. Of cause, for other searches, it needs to be added new products.
+- Clicking on `Product List ()` should bring to product list view.
+- To view product item details, click on product.
 
-http://localhost:8080/config?action=prepopulate
+#### Configuration
+There are two ways to prepopulate product catalog with products:
+
+By using application 
+- Open application for the fist time (http://localhost:8080/) and press red `Here` button and then hit `Refresh` or F5. You will see Product List text shows now number of products.
+
+By using REST API call:
+- To prepopulate Product Catalog with data, use configuration API call: http://localhost:8080/config?action=prepopulate
 
 ### Potential Improvements
 For production ready code we need to know context better where service will be running as well as specifying non-functional requirements that will help to estimate workloads and risks. Further improvements/enhancements I would consider:
