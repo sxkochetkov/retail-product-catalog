@@ -1,11 +1,10 @@
 package com.example.product_catalog.datastore;
 
 import com.example.product_catalog.models.Product;
+import com.example.product_catalog.utils.SearchUtil;
 import org.springframework.stereotype.Component;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 @Component
 public class CatalogDataManager {
@@ -15,7 +14,7 @@ public class CatalogDataManager {
     public void addProduct(Product product) {
         maxId++;
         product.setId(maxId);
-        catalog.put(product.getName(), product);
+        catalog.put(product.getName().toLowerCase(), product);
 
     }
 
@@ -38,5 +37,9 @@ public class CatalogDataManager {
 
     public Optional<Product> getProductByName(String name) {
         return Optional.ofNullable(catalog.get(name));
+    }
+
+    public List<Product> getSearchResults(String term) {
+        return SearchUtil.search(term, catalog).values().stream().toList();
     }
 }
