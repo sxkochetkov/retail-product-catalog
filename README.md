@@ -1,4 +1,4 @@
-NOTE: This is the main repository. For simplicity, the initial intent was to use React frontend inside Spring Boot by using  `frontend-maven-plugin` plugin. But for some reason, frontend code (src\main\product-catalog-frontend) is not visible/commited in the project repository as git rejects to push frontend code as a part of the repo. So, I created a dedicated repository for frontend only:
+NOTE: This is the main repository. For simplicity, the initial intent was to use React frontend inside Spring Boot by using  `frontend-maven-plugin` plugin. The frontend code is located in `src\main\product-catalog-frontend` but I creaeted a copy in a dedicated repository for frontend only:
 https://github.com/sxkochetkov/product-catalog-frontend
 
 Please, read more about it in `Dev Notes` section.
@@ -12,7 +12,7 @@ Develop a retail product catalog application with a backend that supports fuzzy 
   - Can retrieve all products as paginated list
   - Can retrieve details for a specified product
   - Can search for products with Fuzzy Search capability by product name
-     
+
 ### Assumptions
 - Product names are unique (for non-unique names please see suggestion discussed in `Data Modeling and Storing` section below)
 - All data is in correct format
@@ -27,7 +27,7 @@ The downside of this approach is that key can be not unique but this can be solv
 Alternatively, if we care about ordering and uniqueness, this can be solved by using tree-like structures like heap (`PriorityQueue`) or red-black tree (`TreeSet`) that keeps data sorted and unique for example by timestamp, but it is expensive for writes.
 
 #### Product lookup
-There are indexes to speed up lookup but since we don't use any databases we need to create in-memory indexes. Hash index on product name is suggested as a key for `HashMap` but there is a tradeoff: if we need to do lookup for ids that decreases performance for reads. 
+There are indexes to speed up lookup but since we don't use any databases we need to create in-memory indexes. Hash index on product name is suggested as a key for `HashMap` but there is a tradeoff: if we need to do lookup for ids that decreases performance for reads.
 Regarding fuzzy search algorithm, I was experimenting with string mutations.
 
 ### Dev Notes
@@ -35,7 +35,7 @@ Used [spring initializr](https://start.spring.io/) for generating Spring Boot we
 To minimize environment set up, I am using just Maven.
 For simplicity of packaging/installation I am shipping the application as one bundle (React as frontend inside Spring Boot) with help of `frontend-maven-plugin`. More information is here: https://github.com/eirslett/frontend-maven-plugin
 
-*Note: My original intention was to have one repository for both frontend and backend and package application as one bucket for simplicity but sincde git hub doesn't allow to have both (probably it is considering fronend as submodule), I commited frontend in separted [repository](https://github.com/sxkochetkov/product-catalog-frontend), so the content of frontedn repo needs to be copied into `src\main\product-catalog-frontend` directory. Fronend maven plugin will do the rest of npm commands.
+*Note: My original intention was to have one repository for both frontend and backend and package application as one bucket for simplicity but if for some reason it doesn't work, alternatively, I commited the frontend in separted [repository](https://github.com/sxkochetkov/product-catalog-frontend), so the content of frontend repo can be copied into `src\main\product-catalog-frontend` directory. Fronend maven plugin will do the rest of npm commands.
 
 For Search bar ideas I use code samples from here: https://github.com/CodeCompleteYT/react-search-bar
 
@@ -45,7 +45,7 @@ Npm version: 10.9.2
 Node version: v22.13.0
 ```
 
-For frontend local development changes: 
+For frontend local development changes:
 ```
 $ cd retail-product-catalog\src\main\product-catalog-frontend
 $ npm start
@@ -69,8 +69,8 @@ Once the project is packaged, the jar can be run by:
 `$ java -jar .\target\retail-product-catalog-0.0.1-SNAPSHOT.jar`
 
 #### Options:
-- For prepopulating product catalog, see `Configuration section` below. 
-- To add a new product, use `Add New Product` button on the header. 
+- For prepopulating product catalog, see `Configuration section` below.
+- To add a new product, use `Add New Product` button on the header.
 - To do product catalog search, use `Search Product` button. For demonstration fuzzy search capability I added products with similar names. Start typing `roedarv` and play around with it to see search results. Of cause, for other searches, it needs to be added new products.
 - Clicking on `Product List ()` should bring to product list view.
 - To view product item details, click on product.
@@ -78,7 +78,7 @@ Once the project is packaged, the jar can be run by:
 #### Configuration
 There are two ways to prepopulate product catalog with products:
 
-By using application 
+By using application
 - Open application for the fist time (http://localhost:8080/) and press red `Here` button and then hit `Refresh` or F5. You will see Product List text shows now number of products.
 
 By using REST API call:
