@@ -1,4 +1,5 @@
-NOTE: This is the main repository. For simplicity, the initial intent was to use React frontend inside Spring Boot by using  `frontend-maven-plugin` plugin. The frontend code is located in `src\main\product-catalog-frontend` but I creaeted a copy in a dedicated repository for frontend only:
+NOTE: This is the main repository. For simplicity, the initial intent was to use React frontend inside Spring Boot by using  `frontend-maven-plugin` plugin. The frontend code is located in `src\main\product-catalog-frontend` but I created a copy in a dedicated repository for frontend only:
+
 https://github.com/sxkochetkov/product-catalog-frontend
 
 Please, read more about it in `Dev Notes` section.
@@ -35,7 +36,11 @@ Used [spring initializr](https://start.spring.io/) for generating Spring Boot we
 To minimize environment set up, I am using just Maven.
 For simplicity of packaging/installation I am shipping the application as one bundle (React as frontend inside Spring Boot) with help of `frontend-maven-plugin`. More information is here: https://github.com/eirslett/frontend-maven-plugin
 
+<<<<<<< HEAD
 *Note: My original intention was to have one repository for both frontend and backend and package application as one bucket for simplicity but if for some reason it doesn't work, alternatively, I commited the frontend in separted [repository](https://github.com/sxkochetkov/product-catalog-frontend), so the content of frontend repo can be copied into `src\main\product-catalog-frontend` directory. Fronend maven plugin will do the rest of npm commands.
+=======
+*Note: My original intention was to have one repository for both frontend and backend and package application as one bucket for simplicity but if for some reason it doesn't work, alternatively, I commited the frontend in separted [repository](https://github.com/sxkochetkov/product-catalog-frontend), so the content of frontend repo can be copied into `src\main\product-catalog-frontend` directory. Frontend maven plugin will do the rest of npm commands.
+>>>>>>> 62fc919dc38b2091ee6cd475280c56d83c0bc399
 
 For Search bar ideas I use code samples from here: https://github.com/CodeCompleteYT/react-search-bar
 
@@ -57,7 +62,7 @@ You will see live frontend update in: http://localhost:3000
 
 ### Running application in development environment (from project root folder)
 
-*Before packaging and running application, please see Note in `Dev Notes` section about fronend.
+*Before packaging and running application, please see Note in `Dev Notes` section about frontend.
 
 #### Packaging the bundle (from to project root folder "retail-product-catalog")
 ```
@@ -69,9 +74,15 @@ Once the project is packaged, the jar can be run by:
 `$ java -jar .\target\retail-product-catalog-0.0.1-SNAPSHOT.jar`
 
 #### Options:
+<<<<<<< HEAD
 - For prepopulating product catalog, see `Configuration section` below.
 - To add a new product, use `Add New Product` button on the header.
 - To do product catalog search, use `Search Product` button. For demonstration fuzzy search capability I added products with similar names. Start typing `roedarv` and play around with it to see search results. Of cause, for other searches, it needs to be added new products.
+=======
+- For prepopulating product catalog, see `Configuration section` below. 
+- To add a new product, use `Add New Product` button on the header. 
+- To do product catalog search, use `Search Product` button. For demonstration fuzzy search capability I added products with similar names. Start typing `roedarv` and play around with it to see search results. Of course, for other searches, it needs to be added new products.
+>>>>>>> 62fc919dc38b2091ee6cd475280c56d83c0bc399
 - Clicking on `Product List ()` should bring to product list view.
 - To view product item details, click on product.
 
