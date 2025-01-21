@@ -33,6 +33,9 @@ Regarding fuzzy search algorithm, I was experimenting with string mutations.
 Used [spring initializr](https://start.spring.io/) for generating Spring Boot web application (Java/Maven/Spring.Web).
 To minimize environment set up, I am using just Maven.
 For simplicity of packaging/installation I am shipping the application as one bundle (React as frontend inside Spring Boot) with help of `frontend-maven-plugin`. More information is here: https://github.com/eirslett/frontend-maven-plugin
+
+*Note: My original intention was to have one repository for both frontend and backend and package application as one bucket for simplicity but sincde git hub doesn't allow to have both (probably it is considering fronend as submodule), I commited frontend in separted [repository](https://github.com/sxkochetkov/product-catalog-frontend), so the content of frontedn repo needs to be copied into `src\main\product-catalog-frontend` directory. Fronend maven plugin will do the rest of npm commands.
+
 For Search bar ideas I use code samples from here: https://github.com/CodeCompleteYT/react-search-bar
 
 Dependencies versions
@@ -47,17 +50,20 @@ $ cd retail-product-catalog\src\main\product-catalog-frontend
 $ npm start
 ```
 
-You will see live frontend update in:
+You will see live frontend update in: http://localhost:3000
 
-http://localhost:3000
 
-#### Packaging the bundle (go to project root folder):
+
+### Running application in development environment (from project root folder)
+
+*Before packaging and running application, please see Note in `Dev Notes` section about fronend.
+
+#### Packaging the bundle (from to project root folder "retail-product-catalog")
 ```
-$ cd retail-product-catalog
 $ .\mvnw package
 ```
 
-#### Running application in development environment (from project root folder):
+Once the project is packaged, the jar can be run by:
 
 `$ java -jar .\target\retail-product-catalog-0.0.1-SNAPSHOT.jar`
 
