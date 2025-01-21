@@ -15,8 +15,15 @@ public class ProductCatalogService {
     @Autowired
     CatalogDataManager catalogDataManager;
 
-    public List<Product> getProductCatalogPage(Integer page, Integer pageSize, String sortedBy) {
-        return new ArrayList<>(catalogDataManager.getCatalog().values());
+    public List<Product> getProductCatalogPage(int page, int pageSize, String sortedBy) {
+        // TODO - this can be improved to retrieve only relevant data based on page, e.g. filtering on database side
+        List<Product> fullCatalog = new ArrayList<>(catalogDataManager.getCatalog().values());
+
+        // TODO - was not tested for edge cases
+        int startPage = page * pageSize;
+        int endPage = startPage + pageSize;
+
+        return fullCatalog.subList(startPage, Math.min(endPage, fullCatalog.size()));
     }
 
     public Optional<Product> getProductById(Long id) {

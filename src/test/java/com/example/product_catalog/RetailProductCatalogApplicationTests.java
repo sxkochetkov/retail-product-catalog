@@ -2,6 +2,7 @@ package com.example.product_catalog;
 
 import com.example.product_catalog.models.Product;
 import com.example.product_catalog.models.ProductCategory;
+import com.example.product_catalog.utils.DataUtil;
 import com.example.product_catalog.utils.SearchUtil;
 import org.junit.jupiter.api.Test;
 import org.springframework.util.Assert;
@@ -13,7 +14,7 @@ import java.util.*;
 class RetailProductCatalogApplicationTests {
 
 	@Test
-	void testSearchAlgorithm() {
+	void testSearchAlgorithmWithSimpleData() {
 		Map<String, Integer> dictionary = new HashMap<>();
 
 		Map<String, Product> products = new HashMap<>();
@@ -37,5 +38,20 @@ class RetailProductCatalogApplicationTests {
 		String searchTerm4 = "cushion";
 		found = SearchUtil.search(searchTerm4, products);
 		Assert.isTrue(found.size() == 2, "should be true");
+	}
+
+	@Test
+	void testSearchAlgorithmWithMoreData() {
+		Map<String, Product> catalog = new HashMap<>();
+		List<Product> products = DataUtil.generateProductCatalogData();
+
+		for(Product product : products) {
+			catalog.put(product.getName().toLowerCase(), product);
+		}
+
+		String searchTerm = "roedarv";
+
+		Map<String, Product> found  = SearchUtil.search(searchTerm, catalog);
+		Assert.isTrue(found.size() == 8, "should be true");
 	}
 }
