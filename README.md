@@ -70,15 +70,9 @@ Once the project is packaged, the jar can be run by:
 `$ java -jar .\target\retail-product-catalog-0.0.1-SNAPSHOT.jar`
 
 #### Options:
-<<<<<<< HEAD
-- For prepopulating product catalog, see `Configuration section` below.
-- To add a new product, use `Add New Product` button on the header.
-- To do product catalog search, use `Search Product` button. For demonstration fuzzy search capability I added products with similar names. Start typing `roedarv` and play around with it to see search results. Of cause, for other searches, it needs to be added new products.
-=======
 - For prepopulating product catalog, see `Configuration section` below. 
 - To add a new product, use `Add New Product` button on the header. 
 - To do product catalog search, use `Search Product` button. For demonstration fuzzy search capability I added products with similar names. Start typing `roedarv` and play around with it to see search results. Of course, for other searches, it needs to be added new products.
->>>>>>> 62fc919dc38b2091ee6cd475280c56d83c0bc399
 - Clicking on `Product List ()` should bring to product list view.
 - To view product item details, click on product.
 
