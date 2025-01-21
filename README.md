@@ -36,11 +36,7 @@ Used [spring initializr](https://start.spring.io/) for generating Spring Boot we
 To minimize environment set up, I am using just Maven.
 For simplicity of packaging/installation I am shipping the application as one bundle (React as frontend inside Spring Boot) with help of `frontend-maven-plugin`. More information is here: https://github.com/eirslett/frontend-maven-plugin
 
-<<<<<<< HEAD
-*Note: My original intention was to have one repository for both frontend and backend and package application as one bucket for simplicity but if for some reason it doesn't work, alternatively, I commited the frontend in separted [repository](https://github.com/sxkochetkov/product-catalog-frontend), so the content of frontend repo can be copied into `src\main\product-catalog-frontend` directory. Fronend maven plugin will do the rest of npm commands.
-=======
-*Note: My original intention was to have one repository for both frontend and backend and package application as one bucket for simplicity but if for some reason it doesn't work, alternatively, I commited the frontend in separted [repository](https://github.com/sxkochetkov/product-catalog-frontend), so the content of frontend repo can be copied into `src\main\product-catalog-frontend` directory. Frontend maven plugin will do the rest of npm commands.
->>>>>>> 62fc919dc38b2091ee6cd475280c56d83c0bc399
+*Note: My original intention was to have one repository for both frontend and backend and package application as one bucket for simplicity but if for some reason it doesn't work, alternatively, I commited the frontend in separated [repository](https://github.com/sxkochetkov/product-catalog-frontend), so the content of frontend repo can be copied into `src\main\product-catalog-frontend` directory. Frontend maven plugin will do the rest of npm commands.
 
 For Search bar ideas I use code samples from here: https://github.com/CodeCompleteYT/react-search-bar
 
