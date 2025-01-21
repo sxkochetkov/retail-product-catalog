@@ -1,3 +1,6 @@
+NOTE: This is the main repository but for some reason, frontend code (src\main\product-catalog-frontend) is not visible in the project repository as git rejects to push frontend code as a part of the repo. So, I created a dedicated repository for frontend only:
+https://github.com/sxkochetkov/product-catalog-frontend
+the initial intent was to use React frontend inside Spring Boot wiht  `frontend-maven-plugin` plugin. Pleae, read more about it in `Dev Notes` section.
 
 ### Objective
 Develop a retail product catalog application with a backend that supports fuzzy searching of products to accommodate for user input errors and approximations. The frontend will provide a user-friendly interface to search and display products.
