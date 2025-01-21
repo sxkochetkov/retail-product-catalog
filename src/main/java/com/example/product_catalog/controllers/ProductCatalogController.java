@@ -1,8 +1,8 @@
 package com.example.product_catalog.controllers;
 
+import com.example.product_catalog.models.PaginationResultsTuple3;
 import com.example.product_catalog.models.Product;
 import com.example.product_catalog.services.ProductCatalogService;
-import com.example.product_catalog.utils.ProductCatalogUtil;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,8 +22,8 @@ public class ProductCatalogController {
 
     // sample of request: `/products?page=2&pageSize=18`
     @GetMapping("")
-    public List<Product> getAllProducts(@RequestParam(value = "page", required = false) Integer page,
-                                 @RequestParam(value = "pageSize", required = false) Integer pageSize) {
+    public PaginationResultsTuple3<Product> getAllProducts(@RequestParam(value = "page", required = false) Integer page,
+                                                           @RequestParam(value = "pageSize", required = false) Integer pageSize) {
         logger.info("ProductCatalogController:getAllProducts:enter");
         if (page == null)
             page = 0;

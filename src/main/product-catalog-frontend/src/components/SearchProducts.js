@@ -1,5 +1,5 @@
-import React, {useState} from "react";
-import { FaSearch} from "react-icons/fa";
+import React, { useState } from "react";
+import { FaSearch } from "react-icons/fa";
 import "./SearchBar.css";
 import Product from "./Product"
 import { searchProducts } from '../api/ProductService';
@@ -12,11 +12,10 @@ const SearchProducts = () => {
         try {
             console.log("search term is: " + value);
             const { data } = await searchProducts(value);
-            
+
             setData(data);
             console.log("data from search: " + data);
-            console.log("length of search: " + data.length);
-        } catch(error) {
+        } catch (error) {
             console.log(error);
         }
     }
@@ -29,20 +28,19 @@ const SearchProducts = () => {
     return (
         <div>
             <div className="input-wrapper">
-            <FaSearch id="search-icon" />
-            <input 
-                placeholder="Type to do fuzzy search. For example: roedarv" 
-                value={input}
-                onChange={(e) => handleSearchChange(e.target.value)}
-            />
+                <FaSearch id="search-icon" />
+                <input
+                    placeholder="Type to do fuzzy search. For example: roedarv"
+                    value={input}
+                    onChange={(e) => handleSearchChange(e.target.value)}
+                />
             </div>
             <div>
                 <ul className='search-product-list'>
                     {data?.length > 0 && data.map(product => <Product product={product} key={product.id} />)}
-                </ul>         
+                </ul>
             </div>
         </div>
-    
     );
 }
 
