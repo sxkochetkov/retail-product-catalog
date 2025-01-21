@@ -1,8 +1,6 @@
 package com.example.product_catalog.controllers;
 
-import com.example.product_catalog.models.Product;
 import com.example.product_catalog.services.ConfigurationService;
-import com.example.product_catalog.utils.ProductCatalogUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,7 +17,7 @@ public class ConfigurationController {
 
     // sample of request: `/config?action=prepopulate`
     @GetMapping("")
-    String getAllProducts(@RequestParam(value = "action", required = false) String action) {
+    public String getAllProducts(@RequestParam(value = "action", required = false) String action) {
         // Error earl on
         if(action == null)
             return "No Action specified";

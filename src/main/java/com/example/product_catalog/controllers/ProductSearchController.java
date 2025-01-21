@@ -28,9 +28,6 @@ public class ProductSearchController {
             term = "*";
 
         logger.info("ProductSearchController:searchProducts:term:{}", term);
-        List<Product> searchResults =  productSearchService.searchProductCatalogPage(term.toLowerCase());
-        logger.info("ProductSearchController:searchProducts:found:{}", searchResults.size());
-
-        return searchResults;
+        return productSearchService.searchProductCatalogPage(term.toLowerCase());
     }
 }

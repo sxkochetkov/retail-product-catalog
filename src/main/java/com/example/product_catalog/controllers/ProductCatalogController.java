@@ -23,8 +23,7 @@ public class ProductCatalogController {
     // sample of request: `/products?page=2&pageSize=18`
     @GetMapping("")
     public List<Product> getAllProducts(@RequestParam(value = "page", required = false) Integer page,
-                                 @RequestParam(value = "pageSize", required = false) Integer pageSize,
-                                 @RequestParam(value = "sortedBy", required = false) String sortedBy) {
+                                 @RequestParam(value = "pageSize", required = false) Integer pageSize) {
         logger.info("ProductCatalogController:getAllProducts:enter");
         if (page == null)
             page = 0;
@@ -32,10 +31,7 @@ public class ProductCatalogController {
         if (pageSize == null)
             pageSize = 0; // which means bring everything
 
-        if (ProductCatalogUtil.isNullOrEmpty(sortedBy))
-            sortedBy = "name"; // keeping simple here, but normally we need to use or enum/schema column or Sort/Order from org.springframework.data.domain package
-
-        return productCatalogService.getProductCatalogPage(page, pageSize, sortedBy);
+        return productCatalogService.getProductCatalogPage(page, pageSize);
     }
 
     @GetMapping("/{id}")

@@ -20,7 +20,7 @@ public class DataUtil {
                 new Product(7, "Redarv", new ProductCategory("Cushion"), "Roedarv with mistake", 30.00, "https://www.ikea.com/us/en/images/products/roedarv-cushion-multicolor__0600167_pe678583_s5.jpg"),
                 new Product(8, "Roedarva", new ProductCategory("Cushion"), "Roedarv with mistake", 30.00, "https://www.ikea.com/us/en/images/products/roedarv-cushion-multicolor__0600167_pe678583_s5.jpg"),
                 new Product(9, "Roedarav", new ProductCategory("Cushion"), "Roedarv with mistake", 30.00, "https://www.ikea.com/us/en/images/products/roedarv-cushion-multicolor__0600167_pe678583_s5.jpg"),
-                new Product(10, "Redarv", new ProductCategory("Cushion"), "Roedarv with mistake", 30.00, "https://www.ikea.com/us/en/images/products/roedarv-cushion-multicolor__0600167_pe678583_s5.jpg"),
+                new Product(10, "Redarvx", new ProductCategory("Cushion"), "Roedarv with mistake", 30.00, "https://www.ikea.com/us/en/images/products/roedarv-cushion-multicolor__0600167_pe678583_s5.jpg"),
                 new Product(11, "Rodarv", new ProductCategory("Cushion"), "Roedarv with mistake", 30.00, "https://www.ikea.com/us/en/images/products/roedarv-cushion-multicolor__0600167_pe678583_s5.jpg"),
                 new Product(12, "oedarv", new ProductCategory("Cushion"), "Roedarv with mistake", 30.00, "https://www.ikea.com/us/en/images/products/roedarv-cushion-multicolor__0600167_pe678583_s5.jpg")
         ));

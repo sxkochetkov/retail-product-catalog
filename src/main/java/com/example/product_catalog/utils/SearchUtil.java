@@ -4,7 +4,6 @@ import com.example.product_catalog.models.Product;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
